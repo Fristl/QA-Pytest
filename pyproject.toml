@@ -1,0 +1,29 @@
+[project]
+name = "qa-pytest-start"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "isort>=6.0.1",
+    "mypy>=1.16.0",
+    "pre-commit>=4.2.0",
+    "ruff>=0.11.13",
+]
+
+# Linters
+[tool.ruff]
+extend = "ruff.toml"
+
+unfixable = []
+
+
+[tool.mypy]
+python_version = "3.9"
+
+follow_imports = "silent"
+disable_error_code = "import-untyped"
+ignore_missing_imports = true
