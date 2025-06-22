@@ -16,9 +16,11 @@ dev = [
 ]
 
 # Linters
+
 [tool.ruff]
 extend = "ruff.toml"
 
+[tool.ruff.lint]
 unfixable = []
 
 
