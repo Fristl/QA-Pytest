@@ -1,3 +1,7 @@
+default_install_hook_types:
+  - commit-msg
+  - pre-commit
+
 repos:
 -   repo: https://github.com/compilerla/conventional-pre-commit
     rev: v4.2.0
@@ -5,10 +9,9 @@ repos:
     -   id: conventional-pre-commit
         name: Conventional commit check
         stages: [commit-msg]
-        args: [--verbose]
 
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.13
+    rev: v0.12.0
     hooks:
     -   id: ruff
         name: Ruff linter

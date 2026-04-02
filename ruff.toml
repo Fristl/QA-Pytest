@@ -1,8 +1,8 @@
 line-length = 79
 
-select = ["ALL"]
+lint.select = ["ALL"]
 
-ignore = [
+lint.ignore = [
     # flake8-bandit (S)
     "S101", 	# assert: Use of assert detected
 
@@ -10,10 +10,6 @@ ignore = [
     "I001",	    # Unsorted-imports: Import block is un-sorted or un-formatted
 
     # flake8-annotations (ANN)
-    "ANN101",	# Missing-type-self: Missing type annotation
-                # for self in method
-    "ANN102",   # Missing-type-cls: Missing type annotation
-                # for cls in classmethod
     "ANN204",	# Missing-return-type-special-method: Missing return type
                 # annotation for special method __init__
     "ANN401",   # Any-type: dynamically typed expressions (typing.Any)
@@ -49,5 +45,5 @@ ignore = [
     "ERA001",    # Found commented-out code
 ]
 
-[pep8-naming]
+[lint.pep8-naming]
 ignore-names = ["k", "v", "i", "q", "fp", "x", "y", "z"]
