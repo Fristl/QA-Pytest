@@ -1,7 +1,12 @@
-from src.circle import Circle
+from typing import Any
+
+import pytest
+
 from common.exceptions import FigureError
 from common.exceptions import SizeError
-import pytest
+from common.typings import Number
+from common.typings import SquareUnit
+from src.circle import Circle
 
 
 @pytest.mark.positive
@@ -11,9 +16,13 @@ import pytest
         (11, 380.132711084365),
         (3.1, 30.190705400997917),
     ],
-    ids=["integer", "float"]
+    ids=["integer", "float"],
 )
-def test_circle_area_positive(cache, radius, area):
+def test_circle_area_positive(
+    cache: Any,
+    radius: Number,
+    area: SquareUnit,
+) -> None:
     circle = Circle(radius)
     assert circle.area == area,\
         f"Circle area with radius {radius} must be {area}"
@@ -22,9 +31,9 @@ def test_circle_area_positive(cache, radius, area):
 @pytest.mark.parametrize(
     "radius",
     [-12, -3.5, 0],
-    ids=["integer_negative", "float_negative", "zero"]
+    ids=["integer_negative", "float_negative", "zero"],
 )
-def test_circle_negative(cache, radius):
+def test_circle_negative(cache: Any, radius: Number) -> None:
     with pytest.raises(SizeError):
         Circle(radius)
 
@@ -36,9 +45,13 @@ def test_circle_negative(cache, radius):
         (2, 12.566370614359172),
         (5.7, 35.814156250923645),
     ],
-    ids=["integer", "float"]
+    ids=["integer", "float"],
 )
-def test_circle_perimeter_positive(cache, radius, perimeter):
+def test_circle_perimeter_positive(
+    cache: Any,
+    radius: Number,
+    perimeter: Number,
+) -> None:
     circle = Circle(radius)
     assert circle.perimeter == perimeter,\
         f"Circle perimeter with radius {radius} must be {perimeter}"
@@ -60,7 +73,12 @@ def test_circle_perimeter_positive(cache, radius, perimeter):
         "float_float",
     ],
 )
-def test_circle_area_add_positive(cache, radius_1, radius_2, summary_area):
+def test_circle_area_add_positive(
+    cache: Any,
+    radius_1: Number,
+    radius_2: Number,
+    summary_area: SquareUnit,
+) -> None:
     circle_1 = Circle(radius_1)
     circle_2 = Circle(radius_2)
     assert circle_1.add_area(circle_2) == summary_area,\
@@ -85,6 +103,10 @@ def test_circle_area_add_positive(cache, radius_1, radius_2, summary_area):
         "zero",
     ],
 )
-def test_circle_area_add_negative(cache, circle, not_figure):
+def test_circle_area_add_negative(
+    cache: Any,
+    circle: Circle,
+    not_figure: Any,
+) -> None:
     with pytest.raises(FigureError):
         circle.add_area(not_figure)

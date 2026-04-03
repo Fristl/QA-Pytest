@@ -1,6 +1,11 @@
-from src.rectangle import Rectangle
-from common.exceptions import SizeError
+from typing import Any
+
 import pytest
+
+from common.exceptions import SizeError
+from common.typings import Number
+from common.typings import SquareUnit
+from src.rectangle import Rectangle
 
 
 @pytest.mark.positive
@@ -12,16 +17,21 @@ import pytest
         (4, 7.7, 30.8),
         (4.54, 7, 31.78),
     ],
-    ids=["integer", "float", "integer_float", "float_integer"]
+    ids=["integer", "float", "integer_float", "float_integer"],
 )
-def test_rectangle_area_positive(cache, width, height, area):
+def test_rectangle_area_positive(
+    cache: Any,
+    width: Number,
+    height: Number,
+    area: SquareUnit,
+) -> None:
     rectangle = Rectangle(width, height)
     assert rectangle.area == area,\
         f"Rectangle area with sides {width} and {height} must be {area}"
 
 
 @pytest.mark.parametrize(
-    ("width", "height",),
+    ("width", "height"),
     [
         (12, -5),
         (-12, 5),
@@ -41,9 +51,9 @@ def test_rectangle_area_positive(cache, width, height, area):
         "zero_zero",
         "zero_integer_positive",
         "zero_integer_negative",
-    ]
+    ],
 )
-def test_rectangle_negative(cache, width, height):
+def test_rectangle_negative(cache: Any, width: Number, height: Number) -> None:
     with pytest.raises(SizeError):
         Rectangle(width, height)
 
@@ -59,7 +69,15 @@ def test_rectangle_negative(cache, width, height):
     ],
     ids=["integer", "float", "integer_float", "float_integer"],
 )
-def test_rectangle_perimeter_positive(cache, width, height, perimeter):
+def test_rectangle_perimeter_positive(
+    cache: Any,
+    width: Number,
+    height: Number,
+    perimeter: Number,
+) -> None:
     rectangle = Rectangle(width, height)
     assert rectangle.perimeter == perimeter, \
-        f"Rectangle perimeter with sides {width} and {height} must be {perimeter}"
+        (
+            f"Rectangle perimeter with sides {width} and {height} "
+            f"must be {perimeter}",
+        )
