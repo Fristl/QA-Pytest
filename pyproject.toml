@@ -1,5 +1,5 @@
 [project]
-name = "qa-pytest-start"
+name = "qa-pytest"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -11,6 +11,7 @@ dev = [
     "isort>=6.0.1",
     "mypy>=1.16.0",
     "pre-commit>=4.2.0",
+    "pytest==8.2.2",
     "ruff>=0.11.13",
 ]
 
@@ -29,3 +30,15 @@ python_version = "3.9"
 follow_imports = "silent"
 disable_error_code = "import-untyped"
 ignore_missing_imports = true
+
+
+[tool.pytest]
+minversion = "8.2.2"
+
+[tool.pytest.ini_options]
+addopts = ["--strict-markers", "-s", "-v"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "smoke: basic smoke tests to verify critical functionality",
+    "positive: tests with correct result",
+]
