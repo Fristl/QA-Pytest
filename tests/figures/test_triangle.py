@@ -5,8 +5,8 @@ import pytest
 from common.exceptions import SizeError
 from common.typings import Number
 from common.typings import SquareUnit
-from src.triangle import Triangle
-from src.triangle import TriangleError
+from src.figures.triangle import Triangle
+from src.figures.triangle import TriangleError
 
 
 @pytest.mark.positive

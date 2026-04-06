@@ -6,7 +6,7 @@ from common.exceptions import FigureError
 from common.exceptions import SizeError
 from common.typings import Number
 from common.typings import SquareUnit
-from src.circle import Circle
+from src.figures.circle import Circle
 
 
 @pytest.mark.positive

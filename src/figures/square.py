@@ -1,7 +1,7 @@
 """Module with a square figure."""
 
 from common.typings import Number
-from src.rectangle import Rectangle
+from src.figures.rectangle import Rectangle
 
 
 class Square(Rectangle):

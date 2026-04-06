@@ -5,7 +5,7 @@ import pytest
 from common.exceptions import SizeError
 from common.typings import Number
 from common.typings import SquareUnit
-from src.rectangle import Rectangle
+from src.figures.rectangle import Rectangle
 
 
 @pytest.mark.positive

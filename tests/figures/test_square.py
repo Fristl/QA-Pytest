@@ -5,7 +5,7 @@ import pytest
 from common.exceptions import SizeError
 from common.typings import Number
 from common.typings import SquareUnit
-from src.square import Square
+from src.figures.square import Square
 
 
 @pytest.mark.positive

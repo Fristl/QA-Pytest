@@ -5,7 +5,7 @@ from math import sqrt
 from common.exceptions import TriangleError
 from common.typings import Number
 from common.typings import SquareUnit
-from src.figure import Figure
+from src.figures.figure import Figure
 
 
 class Triangle(Figure):

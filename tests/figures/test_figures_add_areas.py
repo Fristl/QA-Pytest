@@ -6,11 +6,11 @@ import pytest
 from common.exceptions import FigureError
 from common.typings import Number
 from common.typings import SquareUnit
-from src.circle import Circle
-from src.figure import Figure
-from src.rectangle import Rectangle
-from src.square import Square
-from src.triangle import Triangle
+from src.figures.circle import Circle
+from src.figures.figure import Figure
+from src.figures.rectangle import Rectangle
+from src.figures.square import Square
+from src.figures.triangle import Triangle
 
 
 @pytest.mark.positive
