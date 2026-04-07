@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "requests>=2.33.1",
+    "webob>=1.8.9",
+]
 
 [dependency-groups]
 dev = [
@@ -36,9 +39,9 @@ ignore_missing_imports = true
 minversion = "8.2.2"
 
 [tool.pytest.ini_options]
-addopts = ["--strict-markers", "-s", "-v"]
+addopts = ["--strict-markers", "-s", "-v", "-p", "no:warnings"]
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "smoke: basic smoke tests to verify critical functionality",
-    "positive: tests with correct result",
+    "positive: tests only with correct result",
 ]
