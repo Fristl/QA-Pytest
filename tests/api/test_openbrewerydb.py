@@ -48,7 +48,7 @@ def test_list_breweries_positive(
     assert resp.ok, \
         "Request 'list_breweries' has status != 200"
 
-    assert resp.status_code == HTTPOk, \
+    assert resp.status_code == HTTPOk.code, \
         "Request 'list_breweries' has status != 200"
 
     resp_json = resp.json()
@@ -72,7 +72,7 @@ def test_list_random_brewery_positive(session: Any, count: int) -> None:
     assert resp.ok, \
         "Request 'random_brewery' has status != 200"
 
-    assert resp.status_code == HTTPOk, \
+    assert resp.status_code == HTTPOk.code, \
         "Request 'random_brewery' has status != 200"
 
     resp_json = resp.json()
@@ -89,7 +89,7 @@ def test_random_brewery_positive(session: Any, count: int) -> None:
     assert resp.ok, \
         "Request 'random_brewery' has status != 200"
 
-    assert resp.status_code == HTTPOk, \
+    assert resp.status_code == HTTPOk.code, \
         "Request 'random_brewery' has status != 200"
 
     resp_json = resp.json()
@@ -110,7 +110,7 @@ def test_single_brewery_positive(session: Any) -> None:
             f" has status != 200",
         )
 
-    assert brewery_resp.status_code == HTTPOk, \
+    assert brewery_resp.status_code == HTTPOk.code, \
         (
             f"Request 'single_brewery' with brewery_id - {brewery_id}"
             f" has status != 200",

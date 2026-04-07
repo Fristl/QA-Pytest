@@ -56,7 +56,7 @@ def test_list_all_breeds_positive(session: Any, all_breeds: Response) -> None:
     assert all_breeds.ok, \
         "Request 'list_all_breeds' has status != 200"
 
-    assert all_breeds.status_code == HTTPOk, \
+    assert all_breeds.status_code == HTTPOk.code, \
         "Request 'list_all_breeds' has status != 200"
 
     all_breeds_resp_json = all_breeds.json()
@@ -78,7 +78,7 @@ def test_random_image_positive(session: Any, count: int | str) -> None:
     assert image_resp.ok, \
         "Request 'random_image' has status != 200"
 
-    assert image_resp.status_code == HTTPOk, \
+    assert image_resp.status_code == HTTPOk.code, \
         "Request 'random_image' has status != 200"
 
     image_resp_json = image_resp.json()
@@ -102,7 +102,7 @@ def test_random_image_by_breed_positive(
         assert image_resp.ok, \
             "Request 'random_image_by_breed' has status != 200"
 
-        assert image_resp.status_code == HTTPOk, \
+        assert image_resp.status_code == HTTPOk.code, \
             "Request 'random_image_by_breed' has status != 200"
 
         image_resp_json = image_resp.json()
@@ -116,7 +116,7 @@ def test_random_image_by_breed_positive(
 
 def test_list_all_breeds_negative(session: Any) -> None:
     resp = dog_request("breeds/list/all", "POST")
-    assert resp.ok, "Request 'list_all_breeds' has status 200"
+    assert not resp.ok, "Request 'list_all_breeds' has status 200"
 
     with pytest.raises(HTTPError):
         resp.raise_for_status()

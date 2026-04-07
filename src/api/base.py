@@ -78,7 +78,7 @@ def check_string_param(param: Any) -> None:
 def check_alpha_param(param: Any) -> None:
     try:
         _param = str(param)
-        if _param.isalpha():
+        if not _param.isalpha():
             raise ValueError  # noqa: TRY301
     except (TypeError, ValueError) as exc:
         raise HTTPBadRequest from exc

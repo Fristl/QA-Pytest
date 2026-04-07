@@ -43,7 +43,7 @@ def test_create_resource_positive(
     assert resp.ok, \
         "Request 'create_resource' has status is not OK status"
 
-    assert resp.status_code == HTTPCreated, \
+    assert resp.status_code == HTTPCreated.code, \
         "Request 'create_resource' has status != 201"
 
 
@@ -69,7 +69,7 @@ def test_read_resource_positive(
     assert resp.ok, \
         "Request 'read_resource' has status != 200"
 
-    assert resp.status_code == HTTPOk, \
+    assert resp.status_code == HTTPOk.code, \
         "Request 'read_resource' has status != 200"
 
     resp_json = resp.json()
@@ -98,7 +98,7 @@ def test_update_resource_positive(
     assert resp.ok, \
         "Request 'update_resource' has status is not OK status"
 
-    assert resp.status_code == HTTPOk, \
+    assert resp.status_code == HTTPOk.code, \
         "Request 'update_resource' has status != 200"
 
     resp_json = resp.json()
@@ -136,7 +136,7 @@ def test_delete_resource_positive(
     assert resp.ok, \
         "Request 'delete_resource' has status != 200"
 
-    assert resp.status_code == HTTPOk, \
+    assert resp.status_code == HTTPOk.code, \
         "Request 'delete_resource' has status != 200"
 
 
