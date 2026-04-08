@@ -4,7 +4,7 @@ from math import pi
 
 from common.typings import Number
 from common.typings import SquareUnit
-from src.figure import Figure
+from src.figures.figure import Figure
 
 
 class Circle(Figure):
